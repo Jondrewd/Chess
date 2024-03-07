@@ -2,6 +2,8 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import boardgame.Board;
 import boardgame.Piece;
@@ -16,6 +18,7 @@ public class ChessMatch {
 	private Board board;
 	private Color currentPlayer;
 	private int turn;
+	private boolean check;
 	
 	public ChessMatch() {
 		board = new Board(8, 8);
@@ -99,7 +102,19 @@ public class ChessMatch {
 		turn++;
 		currentPlayer = (currentPlayer == Color.WHITE)? Color.BLACK : Color.WHITE;
 	}
-	
+	private Color opponent(Color color){
+		return(color == Color.WHITE)?  Color.BLACK : Color.WHITE;
+	}
+	private ChessPiece king(Color color){
+		List<Piece> list = piecesOnTheBoard.stream().filter(x-> ((ChessPiece)x).getColor() == color).collect(Collectors.toList());
+		for(Piece p : list){
+			if (p instanceof King){
+				return (ChessPiece) p;
+			}
+		}
+		throw new IllegalStateException("Não existe um rei da cor "+color+" não existe");
+	}
+
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 		piecesOnTheBoard.add(piece);
