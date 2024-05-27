@@ -1,18 +1,40 @@
-## Getting Started
+# Jogo de Xadrez em Java Puro
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<p>Este projeto é uma implementação de um jogo de xadrez utilizando apenas Java puro, sem frameworks adicionais. Ele oferece uma interface simples para jogar xadrez, suportando todas as regras tradicionais do jogo.</p>
 
-## Folder Structure
+## Funcionalidades Principais:
 
-The workspace contains two folders by default, where:
+<ul>
+  <li><strong>Tabuleiro de Xadrez:</strong> Representação do tabuleiro de xadrez com 8x8 casas.</li>
+  <li><strong>Movimentação das Peças:</strong> Implementação completa das regras de movimentação para todas as peças (rei, rainha, bispo, cavalo, torre e peões).</li>
+  <li><strong>Detecção de Xeque e Xeque-mate:</strong> Verificação de situações de xeque e xeque-mate durante o jogo.</li>
+  <li><strong>Promoção de Peão:</strong> Implementação da regra de promoção de peão quando ele atinge a última fileira.</li>
+  <li><strong>Roque:</strong> Implementação das regras de roque, tanto o pequeno quanto o grande.</li>
+  <li><strong>En Passant:</strong> Suporte à captura especial En Passant.</li>
+  <li><strong>Interface de Console:</strong> Interface simples baseada em console para interação com o jogo.</li>
+</ul>
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Como Usar:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+<ol>
+  <li><strong>Clone o Repositório:</strong> Clone este repositório para o seu ambiente local.</li>
+  <li><strong>Compile o Código:</strong> Compile o código Java utilizando o seguinte comando:
+    <pre><code>javac -d bin src/*.java</code></pre></li>
+  <li><strong>Execute o Jogo:</strong> Execute o jogo utilizando o comando:
+    <pre><code>java -cp bin Main</code></pre></li>
+  <li><strong>Interaja com o Jogo:</strong> Siga as instruções no console para mover as peças e jogar o jogo.</li>
+</ol>
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Exemplo de Uso:
 
-## Dependency Management
+- **Mover uma Peça:**
+  <pre><code>
+  De: e2
+  Para: e4
+  </code></pre>
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- **Realizar um Roque:**
+  <pre><code>
+  De: e1
+  Para: g1
+  </code></pre>
